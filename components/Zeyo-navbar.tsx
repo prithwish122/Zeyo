@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/moving-border"
 import { Shield, BarChart3, FileText, Zap } from "lucide-react"
+import ConnectButton from "./Connectbutton"
 
 export default function ZeyoNavbar() {
   const navItems = [
@@ -62,9 +63,9 @@ export default function ZeyoNavbar() {
         {/* Launch App Button */}
         <Button
           borderRadius="1.75rem"
-          className="bg-blue-950/80 backdrop-blur-md text-blue-100 border-blue-500/30 hover:border-blue-400/50 transition-all font-sans"
-        >
-          Launch App
+          className="bg-blue-950/80 backdrop-blur-md text-blue-100 border-blue-500/30 hover:border-blue-400/50 transition-all font-sans"         >
+          {/* <appkit-button /> */}
+          Try now
         </Button>
       </div>
     </div>

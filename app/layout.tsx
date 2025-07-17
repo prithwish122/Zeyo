@@ -3,6 +3,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import ZkvaultNavbar from '@/components/Zeyo-navbar'
 
+import { headers } from 'next/headers' // added
+import ContextProvider from '@/context'
+import ZeyoNavbar from '@/components/Zeyo-navbar'
+
 // Load Inter font
 const inter = Inter({
   subsets: ['latin'],
@@ -15,16 +19,25 @@ export const metadata: Metadata = {
   generator: 'Next.js',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+
+   const headersObj = await headers();
+  const cookies = headersObj.get('cookie')
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ZkvaultNavbar />
-        {children}</body>
+        <ContextProvider cookies={cookies}>
+          <ZeyoNavbar />
+          {children}
+        </ContextProvider>
+        
+        {/* Footer can be added here if needed */}
+      </body>
+      
     </html>
   )
 }

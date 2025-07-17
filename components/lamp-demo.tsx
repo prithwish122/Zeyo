@@ -3,6 +3,7 @@
 import type React from "react"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 const GlowButton = ({
   children,
@@ -79,7 +80,9 @@ export function LampDemo() {
           }}
           className="flex flex-col sm:flex-row gap-6 mt-12"
         >
-          <GlowButton>Start Demo</GlowButton>
+          <Link href="/dashboard">
+          <GlowButton className="size-xxl">Try Demo</GlowButton>
+          </Link>
 
           <GlowButton>View Documentation</GlowButton>
         </motion.div>
