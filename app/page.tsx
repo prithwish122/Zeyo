@@ -11,7 +11,7 @@ import Footer from "@/components/footer"
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-black font-sans">
-      <ZkVaultNavbar />
+      {/* <ZkVaultNavbar /> */}
       <section id="home">
         <LampDemo />
       </section>
