@@ -98,7 +98,7 @@ const MagicBento: React.FC<BentoProps> = ({
   return (
     <div className="w-full bg-black py-16">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-white mb-4">Why Choose Zeyo?</h2>
+        <h1 className="text-4xl md:text-5xl text-white mb-4 tracking-tight">How Zeyo Works ?</h1>
         <p className="text-slate-400 text-lg">Advanced privacy features for the modern DeFi trader</p>
       </div>
 

@@ -5,8 +5,8 @@ export default function Testimonials() {
   return (
     <div className="h-[40rem] rounded-md flex flex-col antialiased bg-black items-center justify-center relative overflow-hidden">
       <div className="text-center mb-12">
-        <h2 className="text-5xl font-bold text-white mb-6 font-sans">
-          What traders <span className="italic text-blue-300">say</span> about us.
+        <h2 className="text-5xl  text-white mb-6 font-sans tracking-tight">
+          What people <span className="italic text-blue-300">say</span> about us.
         </h2>
         <p className="text-xl text-blue-200/80 font-sans">Real feedback from privacy-conscious DeFi traders.</p>
       </div>

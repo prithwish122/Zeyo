@@ -49,10 +49,10 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="flex flex-col items-center text-center space-y-8 max-w-4xl"
+        className="flex flex-col items-center text-center space-y-6 sm:space-y-8 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl px-4 sm:px-6 md:px-8"
       >
-        <h1 className="bg-gradient-to-br from-slate-200 to-slate-400 py-4 bg-clip-text text-5xl font-semibold tracking-tight text-transparent md:text-6xl lg:text-7xl leading-tight">
-          Reclaim your DeFi Privacy with Zeyo
+        <h1 className="bg-gradient-to-br from-slate-200 to-slate-400 pt-42 bg-clip-text text-5xl font-semibold tracking-tight text-transparent md:text-6xl lg:text-7xl leading-tight mt-10">
+          Reclaim Privacy. Prove Performance.
         </h1>
 
         <motion.p
@@ -65,7 +65,8 @@ export function LampDemo() {
           }}
           className="text-xl md:text-2xl text-slate-300 font-light max-w-2xl"
         >
-          Zero-knowledge DeFi portfolio analytics
+          Showcase your on-chain activity with zero-knowledge badges<br />
+          no KYC, no wallet doxxing, no surveillance.
         </motion.p>
 
         <motion.div
@@ -97,7 +98,7 @@ export const LampContainer = ({
   return (
     <div
       className={cn(
-        "relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-0",
+        "relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-0 pt-40",
         className,
       )}
     >
@@ -159,7 +160,7 @@ export const LampContainer = ({
         ></motion.div>
         <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-slate-950 "></div>
       </div>
-      <div className="relative z-50 flex -translate-y-60 flex-col items-center px-5">{children}</div>
+      <div className="relative z-50 flex -translate-y-60 flex-col items-center px-5 pt-84">{children}</div>
     </div>
   )
 }

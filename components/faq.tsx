@@ -51,9 +51,9 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl font-bold text-white mb-6 font-sans"
+            className="text-5xl tracking-tight text-white mb-6 font-sans"
           >
-            Everything you <span className="italic">need</span> to know.
+            Everything you <span className="italic text-blue-300">need</span> to know.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

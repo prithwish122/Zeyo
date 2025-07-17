@@ -1,113 +1,192 @@
 "use client"
-import { motion } from "motion/react"
-import { Meteors } from "@/components/ui/meteors"
-import { Shield, Zap, Lock, Award, ArrowRight } from "lucide-react"
+
+import { motion } from "framer-motion"
+import { Wallet, Shield, Award, ArrowRight } from "lucide-react"
 
 export default function HowZeyoWorks() {
-  const steps = [
+  const phases = [
     {
-      number: "01",
-      title: "Connect & Deposit",
+      id: "01",
+      title: "Setup & Connection",
+      subtitle: "Identity & Activity Selection",
       description:
-        "Connect your wallet and deposit assets into secure smart contract vaults with complete privacy protection",
+        "Connect your wallet securely without revealing personal details. Select from various on-chain activities including DAO voting, trading, and staking to establish your reputation baseline.",
+      details: [
+        "Secure wallet connection with privacy protection",
+        "Activity selection from available DeFi protocols",
+        "Reputation baseline establishment",
+      ],
+      icon: Wallet,
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      id: "02",
+      title: "Zero-Knowledge Processing",
+      subtitle: "Proof Generation & Verification",
+      description:
+        "Generate cryptographic zero-knowledge proofs of your trading performance and activities. Smart contracts verify these proofs on-chain while maintaining complete data privacy.",
+      details: [
+        "ZK proof generation from activity data",
+        "Cryptographic validation without data exposure",
+        "Smart contract verification on-chain",
+      ],
       icon: Shield,
-      color: "from-blue-600 to-blue-800",
+      color: "from-emerald-500 to-teal-500",
     },
     {
-      number: "02",
-      title: "Generate zkProofs",
+      id: "03",
+      title: "Credential Minting",
+      subtitle: "Soulbound Badge Creation",
       description:
-        "Create zero-knowledge proofs of your trading performance without revealing sensitive data or balances",
-      icon: Zap,
-      color: "from-blue-700 to-blue-900",
-    },
-    {
-      number: "03",
-      title: "Trade Privately",
-      description: "Execute trades and track portfolio performance while maintaining complete privacy and security",
-      icon: Lock,
-      color: "from-blue-800 to-blue-950",
-    },
-    {
-      number: "04",
-      title: "Export zkBadges",
-      description: "Generate verifiable credentials to prove your trading skills without exposing your actual data",
+        "Mint verifiable, non-transferable credentials that prove your trading skills and contributions. These soulbound badges serve as permanent proof of your achievements without exposing sensitive data.",
+      details: [
+        "Non-transferable credential generation",
+        "Permanent achievement verification",
+        "Privacy-preserving skill validation",
+      ],
       icon: Award,
-      color: "from-blue-600 to-blue-900",
+      color: "from-purple-500 to-pink-500",
     },
   ]
 
   return (
-    <div className="w-full bg-black py-24">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl font-bold text-white mb-6 font-sans"
-          >
-            How Zeyo Works
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-blue-200/80 max-w-3xl mx-auto font-sans"
-          >
-            Simple steps to private DeFi trading with zero-knowledge proofs and advanced privacy features
-          </motion.p>
-        </div>
+    <div className="w-full min-h-screen bg-black py-16 px-4 flex items-center justify-center">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl md:text-5xl text-white mb-4 tracking-tight">How Zeyo Works ?</h1>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+            A comprehensive zero-knowledge proof system for private blockchain interactions
+          </p>
+        </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
+        {/* Process Flow */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+          {/* Connection Lines */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 z-0">
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="group relative"
-            >
-              <div className="relative h-80 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-950/50 to-black overflow-hidden hover:border-blue-400/40 transition-all duration-300 hover:-translate-y-2">
-                {/* Meteor Effect */}
-                <Meteors number={15} className="opacity-60" />
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.5, delay: 0.8 }}
+              className="h-full bg-gradient-to-r from-transparent via-gray-600 to-transparent origin-center"
+            />
+          </div>
 
-                {/* Gradient Background */}
+          {phases.map((phase, index) => (
+            <motion.div
+              key={phase.id}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="group relative z-10"
+            >
+              {/* Glass Container */}
+              <div className="relative h-[36rem] rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                {/* Gradient Overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
+                  className={`absolute inset-0 bg-gradient-to-br ${phase.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}
                 />
 
                 {/* Content */}
-                <div className="relative z-10 p-6 h-full flex flex-col">
-                  {/* Step Number */}
-                  <div className="text-blue-400/60 text-sm font-mono mb-4">{step.number}</div>
-
-                  {/* Icon */}
-                  <div className="mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-300">
-                      <step.icon className="w-6 h-6 text-blue-400" />
+                <div className="relative z-10 p-10 h-full flex flex-col">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-gray-500 text-sm font-mono tracking-wider">PHASE {phase.id}</span>
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${phase.color} p-0.5`}>
+                      <div className="w-full h-full rounded-xl bg-black/80 flex items-center justify-center">
+                        <phase.icon className="w-6 h-6 text-white" />
+                      </div>
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-blue-100 transition-colors duration-300 font-sans">
-                    {step.title}
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gray-100 transition-colors duration-300">
+                    {phase.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-blue-200/70 text-sm leading-relaxed flex-1 font-sans">{step.description}</p>
+                  <p
+                    className={`text-base font-medium text-transparent bg-gradient-to-r ${phase.color} bg-clip-text mb-6`}
+                  >
+                    {phase.subtitle}
+                  </p>
 
-                  {/* Arrow for flow indication */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
-                      <ArrowRight className="w-6 h-6 text-blue-400/40" />
+                  {/* Description */}
+                  <p className="text-gray-400 text-base leading-relaxed mb-8 group-hover:text-gray-300 transition-colors duration-300">
+                    {phase.description}
+                  </p>
+
+                  {/* Details List */}
+                  <div className="flex-1">
+                    <ul className="space-y-3">
+                      {phase.details.map((detail, detailIndex) => (
+                        <motion.li
+                          key={detailIndex}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.2 + detailIndex * 0.1 + 0.8 }}
+                          className="flex items-start gap-3 text-sm text-gray-500"
+                        >
+                          <div
+                            className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${phase.color} mt-2 flex-shrink-0`}
+                          />
+                          <span className="leading-relaxed">{detail}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Progress Indicator */}
+                  {/* <div className="mt-8 pt-6 border-t border-white/10">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-500 font-mono">PROGRESS</span>
+                      <span className="text-xs text-gray-400 font-mono">
+                        {Math.round(((index + 1) / phases.length) * 100)}%
+                      </span>
                     </div>
-                  )}
+                    <div className="mt-2 h-1 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        className={`h-full bg-gradient-to-r ${phase.color} rounded-full`}
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{ delay: index * 0.2 + 1.2, duration: 0.8 }}
+                      />
+                    </div>
+                  </div> */}
                 </div>
 
-                {/* Hover Glow Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Subtle Glow Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
+
+              {/* Flow Arrow */}
+              {index < phases.length - 1 && (
+                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.2 + 1.5 }}
+                  >
+                    <ArrowRight className="w-5 h-5 text-gray-600" />
+                  </motion.div>
+                </div>
+              )}
+
+              {/* Mobile Flow Indicator */}
+              {index < phases.length - 1 && (
+                <div className="lg:hidden flex justify-center my-6">
+                  <motion.div
+                    initial={{ opacity: 0, scaleY: 0 }}
+                    animate={{ opacity: 1, scaleY: 1 }}
+                    transition={{ delay: index * 0.2 + 1 }}
+                    className="w-px h-8 bg-gradient-to-b from-gray-600 to-gray-800"
+                  />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -115,13 +194,18 @@ export default function HowZeyoWorks() {
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.6 }}
           className="text-center mt-16"
         >
-          <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full font-medium transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 font-sans">
-            Start Trading Privately
-          </button>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-8 py-3 bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-full font-medium text-sm transition-all duration-300 hover:bg-white/15 hover:border-white/30"
+          >
+            Begin Private Trading
+          </motion.button>
+          <p className="text-gray-500 text-xs mt-3">Join the future of private blockchain interactions</p>
         </motion.div>
       </div>
     </div>
