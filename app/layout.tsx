@@ -31,7 +31,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ContextProvider cookies={cookies}>
-          <ZeyoNavbar />
+          {/* <ZeyoNavbar /> */}
           {children}
         </ContextProvider>
         

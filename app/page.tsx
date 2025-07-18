@@ -7,11 +7,12 @@ import HowZkVaultWorks from "@/components/how-zkvault-works"
 import Testimonials from "@/components/testimonials"
 import FAQ from "@/components/faq"
 import Footer from "@/components/footer"
+import ZeyoNavbar from "@/components/Zeyo-navbar"
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-black font-sans">
-      {/* <ZkVaultNavbar /> */}
+      <ZeyoNavbar />
       <section id="home">
         <LampDemo />
       </section>

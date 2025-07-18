@@ -4,7 +4,7 @@ import { Shield, BarChart3, FileText, Zap } from "lucide-react"
 import ConnectButton from "./Connectbutton"
 import Link from "next/link"
 
-export default function ZeyoNavbar() {
+export default function DashNavbar() {
   const navItems = [
     // {
     //   name: "Logo",
@@ -65,14 +65,14 @@ export default function ZeyoNavbar() {
         </div>
 
         {/* Launch App Button */}
-      <Link href="/dashboard">
-        <Button
+      {/* <Link href="/dashboard"> */}
+        {/* <Button
           borderRadius="1.75rem"
-          className="bg-blue-950/80 backdrop-blur-md text-blue-100 border-blue-500/30 hover:border-blue-400/50 transition-all font-sans"         >
-          {/* <appkit-button /> */}
-          Try demo
-        </Button>
-      </Link>
+          className="bg-blue-950/80 backdrop-blur-md text-blue-100 border-blue-500/30 hover:border-blue-400/50 transition-all font-sans"         > */}
+          <appkit-button />
+          {/* Try demo */}
+        {/* </Button> */}
+      {/* </Link> */}
 
         {/* Connect Button */}
       </div>
