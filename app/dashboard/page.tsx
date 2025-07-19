@@ -31,6 +31,9 @@ import { Vortex } from "@/components/ui/vortex"
 import ConnectButton from "@/components/Connectbutton"
 import ZeyoNavbar from "@/components/Zeyo-navbar"
 import DashNavbar from "@/components/dashboard-bar"
+import { useAppKitAccount, useAppKitNetwork } from "@reown/appkit/react"
+import { useWriteContract } from "wagmi"
+import propAbi from "@/contract/abi.json"
 
 export default function ZeyoDashboard() {
   const [currentView, setCurrentView] = useState<"dashboard" | "generate-proof">("dashboard")
@@ -530,13 +533,20 @@ const GenerateProofView = ({ onBack }: { onBack: () => void }) => {
   }
 
 
-  
+  const { address ,isConnected } = useAppKitAccount() // AppKit hook to get the address and check if the user is connected
+  const { chainId } = useAppKitNetwork() // to get chainid
+  const { writeContract, isSuccess } = useWriteContract() 
+
+  const contract_address = "0x6ea56230446eb206cb805494826c33C06971C61E"
 
 
 
   const handleMintBadge = async (defiActivity: string) => {
     setIsMinting(true)
     setLogs([])
+
+
+
     const mintingSteps = [
       "Preparing badge metadata...",
       "Creating soulbound token...",
@@ -554,6 +564,16 @@ const GenerateProofView = ({ onBack }: { onBack: () => void }) => {
         addLog("info", mintingSteps[i])
       }
     }
+
+     writeContract({
+      abi: propAbi,
+      functionName: "mintBadge",
+      address: contract_address,
+      args: [defiActivity],
+    })
+
+
+
     setIsMinting(false)
   }
 
