@@ -69,7 +69,7 @@ export default function DashNavbar() {
         {/* <Button
           borderRadius="1.75rem"
           className="bg-blue-950/80 backdrop-blur-md text-blue-100 border-blue-500/30 hover:border-blue-400/50 transition-all font-sans"         > */}
-          <appkit-button />
+          <appkit-button network="false" />
           {/* Try demo */}
         {/* </Button> */}
       {/* </Link> */}
