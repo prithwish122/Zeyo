@@ -529,7 +529,12 @@ const GenerateProofView = ({ onBack }: { onBack: () => void }) => {
     setIsGenerating(false)
   }
 
-  const handleMintBadge = async () => {
+
+  
+
+
+
+  const handleMintBadge = async (defiActivity: string) => {
     setIsMinting(true)
     setLogs([])
     const mintingSteps = [
@@ -840,7 +845,7 @@ const GenerateProofView = ({ onBack }: { onBack: () => void }) => {
 
                 {mintingComplete && <EnhancedTrophyBadge badgeMetadata={badgeMetadata} />}
 
-                <GlassButton onClick={handleMintBadge} disabled={isMinting || mintingComplete}>
+                <GlassButton onClick={() => handleMintBadge(defiActivity)} disabled={isMinting || mintingComplete}>
                   {isMinting ? (
                     <>
                       <Loader2 className="w-6 h-6 animate-spin" />
