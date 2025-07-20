@@ -159,7 +159,7 @@ const ZeyoSidebar = ({
     { title: "Dashboard", icon: BarChart3, active: currentView === "dashboard", onClick: onDashboard },
     { title: "Generate Proof", icon: FileText, active: currentView === "generate-proof", onClick: onGenerateProof },
     {
-      title: "Verify Credentials",
+      title: "Verify CARV ID",
       icon: Search,
       active: currentView === "verify-credentials",
       onClick: onVerifyCredentials,
