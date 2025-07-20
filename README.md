@@ -6,8 +6,8 @@
 
 ## 🚀 Live Demo
 
-👉 **Live App**: [https://zeyo.xyz](https://zeyo.xyz)  
-👉 **Smart Contract Address (BSC Testnet/Mainnet)**: `0x...` *(replace this)*
+👉 **Live App**: [https://zeyo-khaki.vercel.app/](https://zeyo-khaki.vercel.app/)  
+👉 **Smart Contract Address (BNB Tesnet)**: `0x6ea56230446eb206cb805494826c33C06971C61E` 
 
 ---
 
@@ -70,8 +70,8 @@ Zeyo upholds the spirit of **tech fairness** by ensuring **privacy, verifiabilit
 
 - **Standard**: ERC-1155 (Soulbound)
 - **Deployed On**: BNB Chain  
-- **Contract Address**: `0x...` *(replace this)*  
-- **Token ID (Carv ID Linked)**: User-specific
+- **Contract Address**: `0x6ea56230446eb206cb805494826c33C06971C61E` *(replace this)*  
+
 
 ---
 
