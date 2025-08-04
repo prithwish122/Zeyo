@@ -35,8 +35,35 @@ const customNetwork = defineChain({
   }
 })
 
+const Coretestnet = defineChain({
+  id: 1114,
+  caipNetworkId: 'eip155:123456789',
+  chainNamespace: 'eip155',
+  name: 'Core Testnet 2',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'CORE',
+    symbol: 'tCORE2',
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://rpc.test2.btcs.network'],
+      webSocket: [''],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Core Testnet Explorer',
+      url: 'https://scan.test2.btcs.network/',
+    },
+  },
+  contracts: {
+    // Add your contracts here if any
+  },
+})
+
 // Define networks before using them
-export const networks = [mainnet, arbitrum, customNetwork]
+export const networks = [mainnet, arbitrum, customNetwork, Coretestnet]
 
 // Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({
@@ -51,7 +78,7 @@ export const wagmiAdapter = new WagmiAdapter({
 // Now use wagmiAdapter in createAppKit
 const modal = createAppKit({
   adapters: [wagmiAdapter], // Add valid adapter objects here if needed
-  networks: [customNetwork],
+  networks: [customNetwork, Coretestnet],
   chainImages: {
     123456789: '/custom-network-logo.png',
   },
