@@ -11,31 +11,31 @@ if (!projectId) {
   throw new Error('Project ID is not defined')
 }
 
-const customNetwork = defineChain({
-  id: 97,
-  caipNetworkId: 'eip155:123456789',
-  chainNamespace: 'eip155',
-  name: 'BNB Testnet',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'BNB TESTNET',
-    symbol: 'BNB',
-  },
-  rpcUrls: {
-    default: {
-      http: ['https://data-seed-prebsc-1-s1.binance.org:8545'],
-      webSocket: ['WS_RPC_URL'],
-    },
-  },
-  blockExplorers: {
-    default: { name: 'Explorer', url: 'https://testnet.bscscan.com' },
-  },
-  contracts: {
-    // Add the contracts here
-  }
-})
+// const customNetwork = defineChain({
+//   id: 97,
+//   caipNetworkId: 'eip155:123456789',
+//   chainNamespace: 'eip155',
+//   name: 'BNB Testnet',
+//   nativeCurrency: {
+//     decimals: 18,
+//     name: 'BNB TESTNET',
+//     symbol: 'BNB',
+//   },
+//   rpcUrls: {
+//     default: {
+//       http: ['https://data-seed-prebsc-1-s1.binance.org:8545'],
+//       webSocket: ['WS_RPC_URL'],
+//     },
+//   },
+//   blockExplorers: {
+//     default: { name: 'Explorer', url: 'https://testnet.bscscan.com' },
+//   },
+//   contracts: {
+//     // Add the contracts here
+//   }
+// })
 
-const Coretestnet = defineChain({
+const customNetwork = defineChain({
   id: 1114,
   caipNetworkId: 'eip155:123456789',
   chainNamespace: 'eip155',
@@ -63,7 +63,7 @@ const Coretestnet = defineChain({
 })
 
 // Define networks before using them
-export const networks = [mainnet, arbitrum, customNetwork, Coretestnet]
+export const networks = [mainnet, arbitrum, customNetwork]
 
 // Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({
@@ -78,9 +78,9 @@ export const wagmiAdapter = new WagmiAdapter({
 // Now use wagmiAdapter in createAppKit
 const modal = createAppKit({
   adapters: [wagmiAdapter], // Add valid adapter objects here if needed
-  networks: [customNetwork, Coretestnet],
+  networks: [customNetwork],
   chainImages: {
-    123456789: '/custom-network-logo.png',
+    123456789: 'https://s2.coinmarketcap.com/static/img/coins/200x200/23254.png',
   },
   projectId: 'c16459f41eb202b9ef6ea559ae21e2cb',
 })

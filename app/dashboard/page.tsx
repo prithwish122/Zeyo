@@ -191,7 +191,7 @@ const ZeyoSidebar = ({
               {item.active && <ChevronRight className="w-4 h-4 text-cyan-400" />}
             </motion.div>
           ))}
-          <ConnectButton />
+          {/* <ConnectButton /> */}
         </div>
       </nav>
     </div>
@@ -218,7 +218,7 @@ const VerifyCredentialsView = ({ onBack }: { onBack: () => void }) => {
   // }
   // const { , isSuccess } = useReadContract()
 
-  const contract_address = "0x6ea56230446eb206cb805494826c33C06971C61E"
+  const contract_address = "0xF08d516Ca23fe9549E4f3213E186Ea885c87e6E1"
 
   const handleVerifyCredentials = async (credentials: string) => {
     setIsVerifying(true)
@@ -507,7 +507,7 @@ const GenerateProofView = ({ onBack }: { onBack: () => void }) => {
   const { chainId } = useAppKitNetwork()
   const { writeContract, isSuccess } = useWriteContract()
 
-  const contract_address = "0x6ea56230446eb206cb805494826c33C06971C61E"
+  const contract_address = "0xF08d516Ca23fe9549E4f3213E186Ea885c87e6E1"
 
   const handleMintBadge = async (defiActivity: string) => {
     setIsMinting(true)
@@ -1171,7 +1171,7 @@ const RecentActivityCard = () => {
       type: "proof",
       title: "ZK Proof Generated",
       description: "DeFi trading credentials verified",
-      amount: "-0.01 ZKP",
+      amount: "-0.01 tCORE2",
       time: "2m ago",
       status: "Completed",
       icon: FileText,
@@ -1180,7 +1180,7 @@ const RecentActivityCard = () => {
       type: "verification",
       title: "Credential Verified",
       description: "LinkedIn professional badge",
-      amount: "-0.01 ZKP",
+      amount: "-0.01 tCORE2",
       time: "5m ago",
       status: "Success",
       icon: Search,
@@ -1198,7 +1198,7 @@ const RecentActivityCard = () => {
       type: "dao",
       title: "DAO Participation",
       description: "Governance vote submitted",
-      amount: "+0.5 ZKP",
+      amount: "+0.5 tCORE2",
       time: "12m ago",
       status: "Rewarded",
       icon: Users,
